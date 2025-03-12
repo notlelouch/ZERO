@@ -31,49 +31,23 @@
 ```
 ZERO/
 ├── cmd/
-│   ├── perftest/
-│   │   ├── main.go            # Entry point for performance testing
-│   │   ├── pcap_test.go       # BPF/pcap performance tests
-│   │   └── socket_test.go     # Standard socket performance tests
-│   └── examples/
-│       ├── echo/
-│       │   └── main.go        # Simple echo server/client example
-│       └── pubsub/
-│           └── main.go        # Publish/subscribe pattern example
+│   └── zeropoc/
+│       └── main.go            # Main entry point for the POC
 ├── internal/
-│   ├── bpf/
-│   │   ├── capture.go         # Packet capture implementation
-│   │   ├── filter.go          # BPF filter optimization
-│   │   └── stats.go           # Performance statistics collection
-│   ├── transport/
-│   │   ├── aeron.go           # Aeron integration
-│   │   ├── buffer_pool.go     # Memory management and buffer pooling
-│   │   ├── reliability.go     # Reliability layer implementation
-│   │   └── session.go         # Session management
-│   └── platform/
-│       ├── macos.go           # macOS-specific optimizations
-│       └── common.go          # Platform-agnostic utilities
+│   ├── capture/
+│   │   └── bpf.go             # BPF packet capture implementation
+│   └── transport/
+│       └── aeron.go           # Basic Aeron integration
 ├── pkg/
-│   ├── zero/
-│   │   ├── api.go             # Public API definitions
-│   │   ├── config.go          # Configuration options
-│   │   ├── connect.go         # Connection establishment
-│   │   ├── receive.go         # Message reception
-│   │   ├── send.go            # Message transmission
-│   │   └── types.go           # Common type definitions
-│   └── metrics/
-│       ├── latency.go         # Latency measurement utilities
-│       └── throughput.go      # Throughput measurement utilities
+│   └── zero/
+│       ├── zero.go            # Simplified public API
+│       └── config.go          # Basic configuration
+├── examples/
+│   └── simple_echo.go         # Demonstrates basic functionality
 ├── perf/
 │   ├── en0_perf_comparision.go  # Your existing NIC performance test
 │   └── ln0_perf_comparision.go  # Your existing loopback performance test
-├── test/
-│   ├── integration/           # Integration tests
-│   │   └── e2e_test.go        # End-to-end tests
-│   └── benchmark/             # Benchmark tests
-│       └── latency_bench_test.go  # Latency benchmarks
 ├── go.mod
 ├── go.sum
 └── README.md
-
 ```
