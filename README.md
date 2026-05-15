@@ -1,5 +1,27 @@
 # ZERO
+A kernel bypass networking research project proving that 
+BPF-based packet capture achieves sub-microsecond latency 
+vs standard sockets. Transport layer in progress.
 
+## Results
+
+### Loopback (ln0)
+| Metric      | Standard Socket | ZERO (BPF)   | Improvement  |
+|-------------|-----------------|--------------|--------------|
+| Avg latency | 14,150 ns       | 49 ns        | 99.7% faster |
+| P50 latency | 13,042 ns       | 41 ns        | 99.7% faster |
+| P99 latency | 39,041 ns       | 125 ns       | 99.7% faster |
+| Throughput  | 69,228 pkt/s    | 91,333 pkt/s | 32% higher   |
+| Data rate   | 0.26 MB/s       | 3.14 MB/s    | 12x higher   |
+
+### Real NIC (en0)
+| Metric      | Standard Socket | ZERO (BPF) | Improvement  |
+|-------------|-----------------|------------|--------------|
+| Avg latency | 99,485 ns       | 627 ns     | 99.4% faster |
+| P50 latency | 100,208 ns      | 334 ns     | 99.7% faster |
+| P99 latency | 140,792 ns      | 5,667 ns   | 96% faster   |
+
+## Architecture
 ```
 +-------------------------+
 |  Application Layer      |  (User-facing API)
@@ -27,6 +49,11 @@
 
 ```
 
+## Run the benchmarks yourself
+cd perf
+sudo go run ln0_perf_comparision.go
+sudo go run en0_perf_comparision.go
+<!--   
 
 ```
 ZERO/
@@ -77,3 +104,4 @@ ZERO/
 └── README.md
 
 ```
+-->
