@@ -50,9 +50,11 @@ vs standard sockets. Transport layer in progress.
 ```
 
 ## Run the benchmarks yourself
-cd perf
-sudo go run ln0_perf_comparision.go
-sudo go run en0_perf_comparision.go
+   ```bash
+  cd perf
+  sudo go run ln0_perf_comparision.go
+  sudo go run en0_perf_comparision.go
+  ```
 <!--   
 
 ```
